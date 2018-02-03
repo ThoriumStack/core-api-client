@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\tjaartB\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_MyBucks.Core.ApiGateway.ApiClient.1014053671.00" t="ExcludeRecursive" />
+    <e p="C:\Users\tjaartB\RiderProjects\MyBucks.Core.ApiGateway.ApiClient" t="IncludeFlat">
+      <e p="MyBucks.Core.ApiGateway.ApiClient" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Models" t="Include">
+          <e p="BearerToken.cs" t="Include" />
+          <e p="TokenAuthenticationCredentials.cs" t="Include" />
+          <e p="UserAuthenticationRequest.cs" t="Include" />
+        </e>
+        <e p="MyBucks.Core.ApiGateway.ApiClient.csproj" t="IncludeRecursive" />
+        <e p="MyBucksApiClient.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="MyBucks.Core.ApiGateway.ApiClient.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="MyBucks.Core.ApiGateway.ApiClient.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

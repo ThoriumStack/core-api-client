@@ -1,0 +1,47 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\Users\\tjaartB\\RiderProjects\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
+    "projectName": "MyBucks.Core.ApiGateway.ApiClient",
+    "projectPath": "C:\\Users\\tjaartB\\RiderProjects\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
+    "outputPath": "C:\\Users\\tjaartB\\RiderProjects\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\obj\\",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.0"
+    ],
+    "frameworks": {
+      "netcoreapp2.0": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.0": {
+      "dependencies": {
+        "Flurl.Http": {
+          "target": "Package",
+          "version": "[2.1.1, )"
+        },
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.0.0, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}
