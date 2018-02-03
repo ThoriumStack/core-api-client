@@ -8,7 +8,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 {
     public class MyBucksApiClient
     {
-        protected readonly TokenAuthenticationCredentials TokenAuthenticationCredentials;
+        private readonly TokenAuthenticationCredentials TokenAuthenticationCredentials;
 
         private readonly string _context;
         private BearerToken _tokenCollection;

@@ -3699,11 +3699,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tjaartB\\RiderProjects\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
+      "projectUniqueName": "C:\\Users\\tjaartB\\source\\repos\\Lib\\MyBucksCore\\ApiGateway\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
       "projectName": "MyBucks.Core.ApiGateway.ApiClient",
-      "projectPath": "C:\\Users\\tjaartB\\RiderProjects\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
+      "projectPath": "C:\\Users\\tjaartB\\source\\repos\\Lib\\MyBucksCore\\ApiGateway\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
       "packagesPath": "C:\\Users\\tjaartB\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tjaartB\\RiderProjects\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\obj\\",
+      "outputPath": "C:\\Users\\tjaartB\\source\\repos\\Lib\\MyBucksCore\\ApiGateway\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
