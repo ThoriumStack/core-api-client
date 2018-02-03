@@ -19,6 +19,9 @@
             </e>
           </e>
         </e>
+        <e p="TypeConverters" t="Include">
+          <e p="GrpcDateTimeConverter.cs" t="Include" />
+        </e>
       </e>
       <e p="MyBucks.Core.ApiGateway.ApiClient.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

@@ -31,6 +31,18 @@
           "lib/netstandard1.3/Flurl.Http.dll": {}
         }
       },
+      "Google.Protobuf/3.5.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/Google.Protobuf.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Google.Protobuf.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -748,6 +760,19 @@
         "lib/netstandard1.1/Flurl.Http.xml",
         "lib/netstandard1.3/Flurl.Http.dll",
         "lib/netstandard1.3/Flurl.Http.xml"
+      ]
+    },
+    "Google.Protobuf/3.5.1": {
+      "sha512": "f2k1VNaB9bfvEsvARzzEL1TZiIpL33KKK3JMH7UANlPlJVptuvsk4qpBZEnz0pORWZOdUHlVwMQuUzFqjJYCxA==",
+      "type": "package",
+      "path": "google.protobuf/3.5.1",
+      "files": [
+        "google.protobuf.3.5.1.nupkg.sha512",
+        "google.protobuf.nuspec",
+        "lib/net45/Google.Protobuf.dll",
+        "lib/net45/Google.Protobuf.xml",
+        "lib/netstandard1.0/Google.Protobuf.dll",
+        "lib/netstandard1.0/Google.Protobuf.xml"
       ]
     },
     "Microsoft.CSharp/4.3.0": {
@@ -3207,6 +3232,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Flurl.Http >= 2.1.1",
+      "Google.Protobuf >= 3.5.1",
       "NETStandard.Library >= 2.0.1"
     ]
   },
@@ -3255,6 +3281,10 @@
           "Flurl.Http": {
             "target": "Package",
             "version": "[2.1.1, )"
+          },
+          "Google.Protobuf": {
+            "target": "Package",
+            "version": "[3.5.1, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
