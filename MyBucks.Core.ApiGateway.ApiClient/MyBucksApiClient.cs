@@ -8,7 +8,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 {
     public class MyBucksApiClient
     {
-        private readonly TokenAuthenticationCredentials TokenAuthenticationCredentials;
+        private readonly TokenAuthenticationCredentials _tokenAuthenticationCredentials;
 
         private readonly string _context;
         private BearerToken _tokenCollection;
@@ -17,16 +17,21 @@ namespace MyBucks.Core.ApiGateway.ApiClient
         public MyBucksApiClient(string baseUrl, TokenAuthenticationCredentials tokenAuthenticationCredentials, string context)
         {
             _context = context;
-            TokenAuthenticationCredentials = tokenAuthenticationCredentials;
+            _tokenAuthenticationCredentials = tokenAuthenticationCredentials;
             _baseUrl = baseUrl;
         }
 
-        public async Task<BearerToken> RefreshToken(BearerToken existingToken)
+        public void SetToken(BearerToken existingToken)
+        {
+            _tokenCollection = existingToken;
+        }
+
+        public async Task<BearerToken> RefreshToken()
         {
             var result = await _baseUrl
                 .AppendPathSegment("tokens")
-                .AppendPathSegment(existingToken.RefreshToken)
-                .WithBasicAuth(TokenAuthenticationCredentials.ClientId, TokenAuthenticationCredentials.ClientSecret)
+                .AppendPathSegment(_tokenCollection.RefreshToken)
+                .WithBasicAuth(_tokenAuthenticationCredentials.ClientId, _tokenAuthenticationCredentials.ClientSecret)
                 .PostJsonAsync(new {_context}).ReceiveJson<BearerToken>();
             _tokenCollection = result;
             return result;
@@ -43,7 +48,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
             };
             var result = await _baseUrl
                 .AppendPathSegment("tokens")
-                .WithBasicAuth(TokenAuthenticationCredentials.ClientId, TokenAuthenticationCredentials.ClientSecret)
+                .WithBasicAuth(_tokenAuthenticationCredentials.ClientId, _tokenAuthenticationCredentials.ClientSecret)
                 .PostJsonAsync(accountModel)
                 .ReceiveJson<BearerToken>();
             _tokenCollection = result;
