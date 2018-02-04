@@ -32,7 +32,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
                 .AppendPathSegment("tokens")
                 .AppendPathSegment(_tokenCollection.RefreshToken)
                 .WithBasicAuth(_tokenAuthenticationCredentials.ClientId, _tokenAuthenticationCredentials.ClientSecret)
-                .PostJsonAsync(new {_context}).ReceiveJson<BearerToken>();
+                .PostJsonAsync(new {context = _context}).ReceiveJson<BearerToken>();
             _tokenCollection = result;
             return result;
         }
