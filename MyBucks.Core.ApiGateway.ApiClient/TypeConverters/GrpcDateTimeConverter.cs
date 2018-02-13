@@ -16,7 +16,8 @@ namespace MyBucks.Core.ApiGateway.ApiClient.TypeConverters
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var val = (DateTime)value;
+            
+            var val = (DateTime)(value ?? new DateTime());
             var ts = (val.ToUniversalTime().ToTimestamp());
 
             writer.WriteStartObject();
