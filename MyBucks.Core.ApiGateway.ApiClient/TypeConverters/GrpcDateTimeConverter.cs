@@ -31,12 +31,20 @@ namespace MyBucks.Core.ApiGateway.ApiClient.TypeConverters
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            JObject jsonObject = JObject.Load(reader);
-            var properties = jsonObject.Properties().ToList();
-            var ts = new Timestamp();
-            ts.Seconds = (long)properties[0].Value;
-            ts.Nanos = (int)properties[1].Value;
-            return ts.ToDateTime();
+
+            try
+            {
+                JObject jsonObject = JObject.Load(reader);
+                var properties = jsonObject.Properties().ToList();
+                var ts = new Timestamp();
+                ts.Seconds = (long)properties[0].Value;
+                ts.Nanos = (int)properties[1].Value;
+                return ts.ToDateTime();
+            }
+            catch (Exception e)
+            {
+                return new DateTime();
+            }
         }
 
         public override bool CanConvert(Type objectType)
