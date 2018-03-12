@@ -776,7 +776,7 @@
       ]
     },
     "Microsoft.CSharp/4.3.0": {
-      "sha512": "P+MBhIM0YX+JqROuf7i306ZLJEjQYA9uUyRDE+OqwUI5sh41e2ZbPQV3LfAPh+29cmceE1pUffXsGfR4eMY3KA==",
+      "sha512": "1pFlmx5bHoyvcoA0RzYRaGJCR5SAOMxabaUFGwvcHcKgWy+ZSQFyTETQfqesBRuIxIUWPrGlNG7f0BAxp+iAlg==",
       "type": "package",
       "path": "microsoft.csharp/4.3.0",
       "files": [
@@ -1080,7 +1080,7 @@
       ]
     },
     "System.Collections.NonGeneric/4.3.0": {
-      "sha512": "prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
+      "sha512": "Jhq3nGwjkZu1BItCumatqf6k8gYxnIpv7q84kLQvbR2uVglCufoX29n1RFA0NkS1HbV/OmhC4iapxa+L5xoBrw==",
       "type": "package",
       "path": "system.collections.nongeneric/4.3.0",
       "files": [
@@ -1117,7 +1117,7 @@
       ]
     },
     "System.Collections.Specialized/4.3.0": {
-      "sha512": "Epx8PoVZR0iuOnJJDzp7pWvdfMMOAvpUo95pC4ScH2mJuXkKA2Y4aR3cG9qt2klHgSons1WFh4kcGW7cSXvrxg==",
+      "sha512": "iEmXXXbcGm5AkeW+Dnu9LNrtlgAs0SMTDfbKN0fMqogH9K1Wwo8KD/bfFu/WPdAUU1O0f1Hfw15OQ/825McqZQ==",
       "type": "package",
       "path": "system.collections.specialized/4.3.0",
       "files": [
@@ -1211,7 +1211,7 @@
       ]
     },
     "System.ComponentModel.Primitives/4.3.0": {
-      "sha512": "j8GUkCpM8V4d4vhLIIoBLGey2Z5bCkMVNjEZseyAlm4n5arcsJOeI3zkUP+zvZgzsbLTYh4lYeP/ZD/gdIAPrw==",
+      "sha512": "5AwHuc4gCzezaxtwiu0r4iqJDH/z3XLSPCT0sMi4gf6Dqh+W3M1nH+uBnCAeDAIuMV79avWucRz4eSAFww/dCA==",
       "type": "package",
       "path": "system.componentmodel.primitives/4.3.0",
       "files": [
@@ -1248,7 +1248,7 @@
       ]
     },
     "System.ComponentModel.TypeConverter/4.3.0": {
-      "sha512": "16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
+      "sha512": "rW2niM7eZENL9Fgp8wa+wGpuKDnab0gyTS5VlqHObi30SCn+NLjHSV8Q8Z/ujx8vAOH2uFv90BAs6VznmvRk8A==",
       "type": "package",
       "path": "system.componentmodel.typeconverter/4.3.0",
       "files": [
@@ -1365,7 +1365,7 @@
       ]
     },
     "System.Dynamic.Runtime/4.3.0": {
-      "sha512": "SNVi1E/vfWUAs/WYKhE9+qlS6KqK0YVhnlT0HQtr8pMIA8YX3lwy3uPMownDwdYISBdmAF/2holEIldVp85Wag==",
+      "sha512": "37gaLh1LFfc3jENmM2oUsTMSoK6eiqiLoP13QdsI3ZsP5+Ssxs9Hs7TnaQGuZsCIMNjRycuJAzDCoZaX1WysWw==",
       "type": "package",
       "path": "system.dynamic.runtime/4.3.0",
       "files": [
@@ -1500,7 +1500,7 @@
       ]
     },
     "System.Globalization.Extensions/4.3.0": {
-      "sha512": "FhKmdR6MPG+pxow6wGtNAWdZh7noIOpdD5TwQ3CprzgIE1bBBoim0vbR1+AWsWjQmU7zXHgQo4TWSP6lCeiWcQ==",
+      "sha512": "u0JyqMsTVN5cez1lCmW5zeS6PL0iiMjlPW2cnGAZUhboXBR1ga1e6qdcYJjcN5ZosrAArTE+pPUUFFws5WaaSA==",
       "type": "package",
       "path": "system.globalization.extensions/4.3.0",
       "files": [
@@ -1990,7 +1990,7 @@
       ]
     },
     "System.Reflection.Emit/4.3.0": {
-      "sha512": "228FG0jLcIwTVJyz8CLFKueVqQK36ANazUManGaJHkO0icjiIypKW7YLWLIWahyIkdh5M7mV2dJepllLyA1SKg==",
+      "sha512": "ABoSukR+j92n2AYF+VjEDZRk6gm/E43adx20DQKTwLzFNyaDNdbPnidZCDr1gPUnWI34Exoj0CehFOjfYDp/MQ==",
       "type": "package",
       "path": "system.reflection.emit/4.3.0",
       "files": [
@@ -3192,7 +3192,7 @@
       ]
     },
     "System.Xml.XmlDocument/4.3.0": {
-      "sha512": "lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==",
+      "sha512": "ed5/p7O4H9tkCPh04pBGpX7K+CJQXii7bvwdG/tzW+HlStBRfEhAT/9TSQYINeoBgDGbgSuxHEJUBuwzbCsvtQ==",
       "type": "package",
       "path": "system.xml.xmldocument/4.3.0",
       "files": [
@@ -3237,31 +3237,36 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tjaartB\\.nuget\\packages\\": {},
+    "C:\\Users\\KerryT\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\tjaartB\\source\\repos\\Lib\\MyBucksCore\\ApiGateway\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
+      "projectUniqueName": "D:\\Projects\\vss\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
       "projectName": "MyBucks.Core.ApiGateway.ApiClient",
-      "projectPath": "C:\\Users\\tjaartB\\source\\repos\\Lib\\MyBucksCore\\ApiGateway\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
-      "packagesPath": "C:\\Users\\tjaartB\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tjaartB\\source\\repos\\Lib\\MyBucksCore\\ApiGateway\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient\\obj\\",
+      "projectPath": "D:\\Projects\\vss\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
+      "packagesPath": "C:\\Users\\KerryT\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\vss\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\tjaartB\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\KerryT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://172.21.0.65/guestAuth/app/nuget/v1/FeedService.svc/": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
