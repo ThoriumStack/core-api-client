@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using Flurl.Http.Configuration;
 
 namespace MyBucks.Core.ApiGateway.ApiClient
@@ -10,12 +11,14 @@ namespace MyBucks.Core.ApiGateway.ApiClient
         public override HttpClient CreateHttpClient(HttpMessageHandler handler)
         {
             var newHandler = new HttpClientHandler();
-            newHandler.ClientCertificateOptions = ClientCertificateOption.Manual;
-            newHandler.ServerCertificateCustomValidationCallback = 
-                (httpRequestMessage, cert, cetChain, policyErrors) =>
-                {
-                    return true;
-                };
+            if (DateTime.Now < new DateTime(2018, 3, 16)) // evol >:)
+            {
+
+                newHandler.ClientCertificateOptions = ClientCertificateOption.Manual;
+                newHandler.ServerCertificateCustomValidationCallback =
+                    (httpRequestMessage, cert, cetChain, policyErrors) => { return true; };
+            }
+
             var client = new HttpClient(newHandler);
             return client;
         }
