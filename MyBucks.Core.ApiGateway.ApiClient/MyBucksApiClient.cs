@@ -42,6 +42,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 			if (_headers == null) _headers = new Dictionary<string, string>();
 
 			if (!_headers.ContainsKey("Host")) _headers.Add("Host", "fincloud.getbucks.com");
+	        if (!_headers.ContainsKey("X-Forwarded-Proto")) _headers.Add("X-Forwarded-Proto", "https");
 
 			var result = await _baseUrl
                 .AppendPathSegment("tokens")
@@ -58,6 +59,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 			if (_headers == null) _headers = new Dictionary<string, string>();
 
 			if (!_headers.ContainsKey("Host")) _headers.Add("Host", "fincloud.getbucks.com");
+	        if (!_headers.ContainsKey("X-Forwarded-Proto")) _headers.Add("X-Forwarded-Proto", "https");
 
 			var accountModel = new UserAuthenticationRequest
             {
