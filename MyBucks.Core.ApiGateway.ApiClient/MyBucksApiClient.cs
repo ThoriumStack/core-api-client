@@ -13,7 +13,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 
 		private readonly string _context;
 		private BearerToken _tokenCollection;
-        private readonly string _baseUrl;
+        private string _baseUrl;
 
 		private Dictionary<string, string> _headers { get; set; }
 
@@ -23,13 +23,22 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 			_tokenAuthenticationCredentials = tokenAuthenticationCredentials;
 			_baseUrl = baseUrl;
 			_headers = headers;
+			
+			FlurlHttp.Configure(settings => {
+				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
+			});
+
 		}
 
 		public MyBucksApiClient(string baseUrl, TokenAuthenticationCredentials tokenAuthenticationCredentials, string context)
 		{
 			_context = context;
+			
 			_tokenAuthenticationCredentials = tokenAuthenticationCredentials;
 			_baseUrl = baseUrl;
+			FlurlHttp.Configure(settings => {
+				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
+			});
 		}
 
 		public void SetToken(BearerToken existingToken)
@@ -42,7 +51,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 			if (_headers == null) _headers = new Dictionary<string, string>();
 
 			if (!_headers.ContainsKey("Host")) _headers.Add("Host", "fincloud.getbucks.com");
-	        if (!_headers.ContainsKey("X-Forwarded-Proto")) _headers.Add("X-Forwarded-Proto", "https");
+	       // if (!_headers.ContainsKey("X-Forwarded-Proto")) _headers.Add("X-Forwarded-Proto", "https");
 
 			var result = await _baseUrl
                 .AppendPathSegment("tokens")
@@ -59,7 +68,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 			if (_headers == null) _headers = new Dictionary<string, string>();
 
 			if (!_headers.ContainsKey("Host")) _headers.Add("Host", "fincloud.getbucks.com");
-	        if (!_headers.ContainsKey("X-Forwarded-Proto")) _headers.Add("X-Forwarded-Proto", "https");
+	       // if (!_headers.ContainsKey("X-Forwarded-Proto")) _headers.Add("X-Forwarded-Proto", "https");
 
 			var accountModel = new UserAuthenticationRequest
             {
@@ -80,13 +89,15 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 
         public IFlurlRequest GetRequest()
         {
+	        if (!_headers.ContainsKey("Host")) _headers.Add("Host", "fincloud.getbucks.com");
+	        
             var token = _tokenCollection;
             if (token == null)
             {
                 throw new Exception("Logged out");
             }
 
-            return _baseUrl.WithOAuthBearerToken(token.AccessToken);
+            return _baseUrl.WithOAuthBearerToken(token.AccessToken).WithHeaders(_headers);
         }
     }
 }
