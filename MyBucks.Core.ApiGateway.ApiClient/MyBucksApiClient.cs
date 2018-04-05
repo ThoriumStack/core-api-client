@@ -76,16 +76,20 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 
         public async Task<BearerToken> GetAuthToken(string email, string password)
         {
-	        if (_tokenStore.GetToken() != null)
-	        {
-		        return _tokenStore.GetToken();
-	        }
+	       
 	        
 			if (_headers == null) _headers = new Dictionary<string, string>();
 
 			if (!_headers.ContainsKey("Host")) _headers.Add("Host", "fincloud.getbucks.com");
 	       // if (!_headers.ContainsKey("X-Forwarded-Proto")) _headers.Add("X-Forwarded-Proto", "https");
 
+	        
+	        if (_tokenStore.GetToken() != null)
+	        {
+		        return _tokenStore.GetToken();
+	        }
+	        
+	        
 			var accountModel = new UserAuthenticationRequest
             {
                 Context = _context,
