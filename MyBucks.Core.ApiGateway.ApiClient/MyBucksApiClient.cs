@@ -63,7 +63,10 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 
 			if (!_headers.ContainsKey("Host")) _headers.Add("Host", "fincloud.getbucks.com");
 	       // if (!_headers.ContainsKey("X-Forwarded-Proto")) _headers.Add("X-Forwarded-Proto", "https");
-
+	        if (_tokenStore.GetToken() != null)
+	        {
+		        return _tokenStore.GetToken();
+	        }
 			var result = await _baseUrl
                 .AppendPathSegment("tokens")
                 .AppendPathSegment(_tokenStore.GetToken().RefreshToken)
