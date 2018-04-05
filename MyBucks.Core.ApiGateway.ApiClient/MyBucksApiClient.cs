@@ -12,8 +12,10 @@ namespace MyBucks.Core.ApiGateway.ApiClient
         private readonly TokenAuthenticationCredentials _tokenAuthenticationCredentials;
 
 		private readonly string _context;
-		private BearerToken _tokenCollection;
+		//private BearerToken _tokenCollection;
         private string _baseUrl;
+
+	    private ITokenStore _tokenStore;
 
 		private Dictionary<string, string> _headers { get; set; }
 
@@ -28,6 +30,8 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
 			});
 
+			_tokenStore = new DefaultTokenStore();
+
 		}
 
 		public MyBucksApiClient(string baseUrl, TokenAuthenticationCredentials tokenAuthenticationCredentials, string context)
@@ -39,11 +43,18 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 			FlurlHttp.Configure(settings => {
 				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
 			});
+			
+			_tokenStore = new DefaultTokenStore();
 		}
+
+	    public void SetTokenStore(ITokenStore tokenStore)
+	    {
+		    _tokenStore = tokenStore;
+	    }
 
 		public void SetToken(BearerToken existingToken)
         {
-            _tokenCollection = existingToken;
+	        _tokenStore.SetToken(existingToken);
         }
 
         public async Task<BearerToken> RefreshToken()
@@ -55,11 +66,11 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 
 			var result = await _baseUrl
                 .AppendPathSegment("tokens")
-                .AppendPathSegment(_tokenCollection.RefreshToken)
+                .AppendPathSegment(_tokenStore.GetToken().RefreshToken)
 				.WithHeaders(_headers)
 				.WithBasicAuth(_tokenAuthenticationCredentials.ClientId, _tokenAuthenticationCredentials.ClientSecret)
                 .PostJsonAsync(new {context = _context}).ReceiveJson<BearerToken>();
-            _tokenCollection = result;
+            _tokenStore.SetToken(result);
             return result;
         }
 
@@ -83,7 +94,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
                 .WithBasicAuth(_tokenAuthenticationCredentials.ClientId, _tokenAuthenticationCredentials.ClientSecret)
                 .PostJsonAsync(accountModel)
                 .ReceiveJson<BearerToken>();
-            _tokenCollection = result;
+	        _tokenStore.SetToken(result);
             return result;
         }
 
@@ -91,7 +102,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
         {
 	        if (!_headers.ContainsKey("Host")) _headers.Add("Host", "fincloud.getbucks.com");
 	        
-            var token = _tokenCollection;
+            var token = _tokenStore.GetToken();
             if (token == null)
             {
                 throw new Exception("Logged out");

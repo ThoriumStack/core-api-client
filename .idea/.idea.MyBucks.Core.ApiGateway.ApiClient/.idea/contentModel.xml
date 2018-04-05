@@ -4,6 +4,8 @@
     <e p="C:\projects\mybucks\core-api-gateway-client" t="IncludeFlat">
       <e p="MyBucks.Core.ApiGateway.ApiClient" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="DefaultTokenStore.cs" t="Include" />
+        <e p="ITokenStore.cs" t="Include" />
         <e p="Models" t="Include">
           <e p="BearerToken.cs" t="Include" />
           <e p="TokenAuthenticationCredentials.cs" t="Include" />

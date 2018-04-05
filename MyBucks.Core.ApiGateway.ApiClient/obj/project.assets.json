@@ -3262,7 +3262,8 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "http://172.21.0.65/guestAuth/app/nuget/v1/FeedService.svc/": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://dotnet.myget.org/F/dotnet-corert/api/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
