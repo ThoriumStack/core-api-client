@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using Flurl.Http.Configuration;
 
@@ -10,6 +11,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
         // override to customize how HttpClient is created/configured
         public override HttpClient CreateHttpClient(HttpMessageHandler handler)
         {
+            
             var newHandler = new HttpClientHandler();
           
 

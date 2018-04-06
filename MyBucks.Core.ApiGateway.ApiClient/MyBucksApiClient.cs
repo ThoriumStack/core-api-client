@@ -26,9 +26,9 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 			_baseUrl = baseUrl;
 			_headers = headers;
 			
-			FlurlHttp.Configure(settings => {
-				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
-			});
+//			FlurlHttp.Configure(settings => {
+//				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
+//			});
 
 			_tokenStore = new DefaultTokenStore();
 
@@ -40,9 +40,9 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 			
 			_tokenAuthenticationCredentials = tokenAuthenticationCredentials;
 			_baseUrl = baseUrl;
-			FlurlHttp.Configure(settings => {
-				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
-			});
+//			FlurlHttp.Configure(settings => {
+//				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
+//			});
 			
 			_tokenStore = new DefaultTokenStore();
 		}
