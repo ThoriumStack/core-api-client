@@ -50,10 +50,9 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 			_tokenStore = new DefaultTokenStore();
 		}
 
-	    public MyBucksApiClient WithTokenBaseUrl(string tokenBaseUrl)
+	    public void SetTokenBaseUrl(string tokenBaseUrl) 
 	    {
 		    _tokenBaseUrl = tokenBaseUrl;
-		    return this;
 	    }
 
 	    public void SetTokenStore(ITokenStore tokenStore)
