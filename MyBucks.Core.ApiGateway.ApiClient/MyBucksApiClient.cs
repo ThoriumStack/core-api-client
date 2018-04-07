@@ -18,8 +18,8 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 	    private ITokenStore _tokenStore;
 	    private string _tokenBaseUrl;
 
-	    private Dictionary<string, string> Headers { get; set; }
-	    private Dictionary<string, string> TokenHeaders { get; set; }
+	    private Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
+	    private Dictionary<string, string> TokenHeaders { get; set; } = new Dictionary<string, string>();
 
 		public MyBucksApiClient(string baseUrl, TokenAuthenticationCredentials tokenAuthenticationCredentials, string context, Dictionary<string, string> headers)
 		{
