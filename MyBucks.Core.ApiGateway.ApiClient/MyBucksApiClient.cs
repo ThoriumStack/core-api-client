@@ -16,8 +16,9 @@ namespace MyBucks.Core.ApiGateway.ApiClient
         private string _baseUrl;
 
 	    private ITokenStore _tokenStore;
+	    private string _tokenBaseUrl;
 
-		private Dictionary<string, string> _headers { get; set; }
+	    private Dictionary<string, string> _headers { get; set; }
 
 		public MyBucksApiClient(string baseUrl, TokenAuthenticationCredentials tokenAuthenticationCredentials, string context, Dictionary<string, string> headers)
 		{
@@ -25,6 +26,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 			_tokenAuthenticationCredentials = tokenAuthenticationCredentials;
 			_baseUrl = baseUrl;
 			_headers = headers;
+			_tokenBaseUrl = _baseUrl;
 			
 //			FlurlHttp.Configure(settings => {
 //				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
@@ -40,12 +42,19 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 			
 			_tokenAuthenticationCredentials = tokenAuthenticationCredentials;
 			_baseUrl = baseUrl;
+			_tokenBaseUrl = _baseUrl;
 //			FlurlHttp.Configure(settings => {
 //				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
 //			});
 			
 			_tokenStore = new DefaultTokenStore();
 		}
+
+	    public MyBucksApiClient WithTokenBaseUrl(string tokenBaseUrl)
+	    {
+		    _tokenBaseUrl = tokenBaseUrl;
+		    return this;
+	    }
 
 	    public void SetTokenStore(ITokenStore tokenStore)
 	    {
@@ -67,7 +76,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 	        {
 		        return _tokenStore.GetToken();
 	        }
-			var result = await _baseUrl
+			var result = await _tokenBaseUrl
                 .AppendPathSegment("tokens")
                 .AppendPathSegment(_tokenStore.GetToken().RefreshToken)
 				.WithHeaders(_headers)
@@ -100,7 +109,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
                 Password = password,
                 MobileNumber = ""
             };
-            var result = await _baseUrl
+            var result = await _tokenBaseUrl
                 .AppendPathSegment("tokens")
 				.WithHeaders(_headers)
                 .WithBasicAuth(_tokenAuthenticationCredentials.ClientId, _tokenAuthenticationCredentials.ClientSecret)
