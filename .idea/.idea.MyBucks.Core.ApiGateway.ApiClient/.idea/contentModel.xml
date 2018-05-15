@@ -28,6 +28,6 @@
       <e p="MyBucks.Core.ApiGateway.ApiClient.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
-    <e p="C:\Users\tjaartB\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_MyBucks.Core.ApiGateway.ApiClient.1578303790.00" t="ExcludeRecursive" />
+    <e p="C:\Users\tjaartB\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_MyBucks.Core.ApiGateway.ApiClient.1578303790.00" t="ExcludeRecursive" />
   </component>
 </project>

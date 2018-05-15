@@ -128,7 +128,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
             var token = _tokenStore.GetToken();
             if (token == null)
             {
-                throw new Exception("Logged out");
+	            return _baseUrl.WithHeaders(Headers);
             }
 
             return _baseUrl.WithOAuthBearerToken(token.AccessToken).WithHeaders(Headers);
