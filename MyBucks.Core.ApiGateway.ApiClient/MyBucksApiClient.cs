@@ -9,7 +9,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 {
     public class MyBucksApiClient
     {
-        private readonly TokenAuthenticationCredentials _tokenAuthenticationCredentials;
+        private TokenAuthenticationCredentials _tokenAuthenticationCredentials;
 
 		private readonly string _context;
 		//private BearerToken _tokenCollection;
@@ -21,7 +21,9 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 	    private Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
 	    private Dictionary<string, string> TokenHeaders { get; set; } = new Dictionary<string, string>();
 
-		public MyBucksApiClient(string baseUrl, TokenAuthenticationCredentials tokenAuthenticationCredentials, string context, Dictionary<string, string> headers)
+	    public MyBucksApiClient() {}
+
+	    public MyBucksApiClient(string baseUrl, TokenAuthenticationCredentials tokenAuthenticationCredentials, string context, Dictionary<string, string> headers)
 		{
 			_context = context;
 			_tokenAuthenticationCredentials = tokenAuthenticationCredentials;
