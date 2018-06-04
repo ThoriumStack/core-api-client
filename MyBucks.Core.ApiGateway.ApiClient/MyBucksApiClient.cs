@@ -41,7 +41,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 	    public MyBucksApiClient WithBaseUrl(string baseUrl)
 	    {
 		    _baseUrl = baseUrl;
-		    _tokenBaseUrl = baseUrl;
+		    
 		    return this;
 	    }
 	    
@@ -54,6 +54,12 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 	    public MyBucksApiClient WithTokenStore(ITokenStore tokenStore)
 	    {
 		    _tokenStore = tokenStore;
+		    return this;
+	    }
+	    
+	    public MyBucksApiClient WithTokenBaseUrl(string tokenBaseUrl)
+	    {
+		    _tokenBaseUrl = tokenBaseUrl;
 		    return this;
 	    }
 	    
