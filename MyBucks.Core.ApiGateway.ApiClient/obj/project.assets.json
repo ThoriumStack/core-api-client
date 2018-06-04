@@ -88,7 +88,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "NETStandard.Library/2.0.1": {
+      "NETStandard.Library/2.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -858,10 +858,10 @@
         "runtime.json"
       ]
     },
-    "NETStandard.Library/2.0.1": {
-      "sha512": "oA6nwv9MhEKYvLpjZ0ggSpb1g4CQViDVQjLUcDWg598jtvJbpfeP2reqwI1GLW2TbxC/Ml7xL6BBR1HmKPXlTg==",
+    "NETStandard.Library/2.0.0": {
+      "sha512": "7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
       "type": "package",
-      "path": "netstandard.library/2.0.1",
+      "path": "netstandard.library/2.0.0",
       "files": [
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -982,7 +982,7 @@
         "build/netstandard2.0/ref/netstandard.dll",
         "build/netstandard2.0/ref/netstandard.xml",
         "lib/netstandard1.0/_._",
-        "netstandard.library.2.0.1.nupkg.sha512",
+        "netstandard.library.2.0.0.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
     },
@@ -3233,27 +3233,27 @@
     ".NETStandard,Version=v2.0": [
       "Flurl.Http >= 2.1.1",
       "Google.Protobuf >= 3.5.1",
-      "NETStandard.Library >= 2.0.1"
+      "NETStandard.Library >= 2.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tjaartb\\.nuget\\packages\\": {},
+    "C:\\Users\\Ians\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\mybucks\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
+      "projectUniqueName": "C:\\Users\\Ians\\Source\\Repos\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
       "projectName": "MyBucks.Core.ApiGateway.ApiClient",
-      "projectPath": "C:\\projects\\mybucks\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
-      "packagesPath": "C:\\Users\\tjaartb\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\mybucks\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\obj\\",
+      "projectPath": "C:\\Users\\Ians\\Source\\Repos\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
+      "packagesPath": "C:\\Users\\Ians\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ians\\Source\\Repos\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\tjaartb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ians\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3289,7 +3289,7 @@
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.0.1, )",
+            "version": "[2.0.0, )",
             "autoReferenced": true
           }
         },

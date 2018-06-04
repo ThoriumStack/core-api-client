@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Threading.Tasks;
 using Flurl;
 using Flurl.Http;
@@ -11,7 +12,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
     {
         private TokenAuthenticationCredentials _tokenAuthenticationCredentials;
 
-		private readonly string _context;
+		private string _context;
 		//private BearerToken _tokenCollection;
         private string _baseUrl;
 
@@ -23,23 +24,39 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 
 	    public MyBucksApiClient() {}
 
-	    public MyBucksApiClient(string baseUrl, TokenAuthenticationCredentials tokenAuthenticationCredentials, string context, Dictionary<string, string> headers)
-		{
-			_context = context;
-			_tokenAuthenticationCredentials = tokenAuthenticationCredentials;
-			_baseUrl = baseUrl;
-			Headers = headers;
-			_tokenBaseUrl = _baseUrl;
-			
-//			FlurlHttp.Configure(settings => {
-//				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
-//			});
-
-			_tokenStore = new DefaultTokenStore();
-
-		}
-
 	    public bool AddHostHeaders { get; set; } = true;
+
+	    public MyBucksApiClient WithHeaders(Dictionary<string, string> headers)
+	    {
+		    Headers = headers;
+		    return this;
+	    }
+	    
+	    public MyBucksApiClient WithAuthentication(TokenAuthenticationCredentials credentials)
+	    {
+		    _tokenAuthenticationCredentials = credentials;
+		    return this;
+	    }
+
+	    public MyBucksApiClient WithBaseUrl(string baseUrl)
+	    {
+		    _baseUrl = baseUrl;
+		    _tokenBaseUrl = baseUrl;
+		    return this;
+	    }
+	    
+	    public MyBucksApiClient WithContext(string context)
+	    {
+		    _context = context;
+		    return this;
+	    }
+	    
+	    public MyBucksApiClient WithTokenStore(ITokenStore tokenStore)
+	    {
+		    _tokenStore = tokenStore;
+		    return this;
+	    }
+	    
 
 		public MyBucksApiClient(string baseUrl, TokenAuthenticationCredentials tokenAuthenticationCredentials, string context)
 		{
