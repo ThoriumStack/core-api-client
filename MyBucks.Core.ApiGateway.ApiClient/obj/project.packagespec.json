@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\Ians\\Source\\Repos\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
+    "projectUniqueName": "C:\\projects\\mybucks\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
     "projectName": "MyBucks.Core.ApiGateway.ApiClient",
-    "projectPath": "C:\\Users\\Ians\\Source\\Repos\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
-    "outputPath": "C:\\Users\\Ians\\Source\\Repos\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\obj\\",
+    "projectPath": "C:\\projects\\mybucks\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\MyBucks.Core.ApiGateway.ApiClient.csproj",
+    "outputPath": "C:\\projects\\mybucks\\core-api-gateway-client\\MyBucks.Core.ApiGateway.ApiClient\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -37,7 +37,7 @@
         "NETStandard.Library": {
           "suppressParent": "All",
           "target": "Package",
-          "version": "[2.0.0, )",
+          "version": "[2.0.3, )",
           "autoReferenced": true
         }
       },

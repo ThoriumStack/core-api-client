@@ -22,7 +22,10 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 	    private Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
 	    private Dictionary<string, string> TokenHeaders { get; set; } = new Dictionary<string, string>();
 
-	    public MyBucksApiClient() {}
+	    public MyBucksApiClient()
+	    {
+		    _tokenStore = new DefaultTokenStore();
+	    }
 
 	    public bool AddHostHeaders { get; set; } = true;
 
@@ -138,7 +141,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
             };
             var result = await _tokenBaseUrl
                 .AppendPathSegment("tokens")
-				.WithHeaders(Headers)
+				.WithHeaders(TokenHeaders)
                 .WithBasicAuth(_tokenAuthenticationCredentials.ClientId, _tokenAuthenticationCredentials.ClientSecret)
                 .PostJsonAsync(accountModel)
                 .ReceiveJson<BearerToken>();
