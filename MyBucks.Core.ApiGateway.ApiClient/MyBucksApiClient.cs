@@ -10,156 +10,107 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 {
     public class MyBucksApiClient
     {
-        private TokenAuthenticationCredentials _tokenAuthenticationCredentials;
-
-		private string _context;
-		//private BearerToken _tokenCollection;
-        private string _baseUrl;
-
-	    private ITokenStore _tokenStore;
-	    private string _tokenBaseUrl;
-
-	    private Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
+	    private MyBucksApiOptions _options;
+	    
 	    private Dictionary<string, string> TokenHeaders { get; set; } = new Dictionary<string, string>();
 
 	    public MyBucksApiClient()
 	    {
-		    _tokenStore = new DefaultTokenStore();
+		    _options = new MyBucksApiOptions {TokenStore = new DefaultTokenStore()};
 	    }
 
-	    public bool AddHostHeaders { get; set; } = true;
-
-	    public MyBucksApiClient WithHeaders(Dictionary<string, string> headers)
+	    public MyBucksApiClient Configure(string baseUrl, string context, Action<MyBucksApiOptions> setupAction=null)
 	    {
-		    Headers = headers;
-		    return this;
-	    }
-	    
-	    public MyBucksApiClient WithAuthentication(TokenAuthenticationCredentials credentials)
-	    {
-		    _tokenAuthenticationCredentials = credentials;
+		    _options.WithContext(context);
+		    _options.BaseUrl = baseUrl;
+		    setupAction?.Invoke(_options);
 		    return this;
 	    }
 
-	    public MyBucksApiClient WithBaseUrl(string baseUrl)
-	    {
-		    _baseUrl = baseUrl;
-		    
-		    return this;
-	    }
-	    
-	    public MyBucksApiClient WithContext(string context)
-	    {
-		    _context = context;
-		    return this;
-	    }
-	    
-	    public MyBucksApiClient WithTokenStore(ITokenStore tokenStore)
-	    {
-		    _tokenStore = tokenStore;
-		    return this;
-	    }
-	    
-	    public MyBucksApiClient WithTokenBaseUrl(string tokenBaseUrl)
-	    {
-		    _tokenBaseUrl = tokenBaseUrl;
-		    return this;
-	    }
-	    
-
-		public MyBucksApiClient(string baseUrl, TokenAuthenticationCredentials tokenAuthenticationCredentials, string context)
-		{
-			_context = context;
-			
-			_tokenAuthenticationCredentials = tokenAuthenticationCredentials;
-			_baseUrl = baseUrl;
-			_tokenBaseUrl = _baseUrl;
-//			FlurlHttp.Configure(settings => {
-//				settings.HttpClientFactory = new ReallyNaughtyHttpClientFactory();
-//			});
-			
-			_tokenStore = new DefaultTokenStore();
-		}
-
-	    public void SetTokenBaseUrl(string tokenBaseUrl) 
-	    {
-		    _tokenBaseUrl = tokenBaseUrl;
-	    }
-
-	    public void SetTokenStore(ITokenStore tokenStore)
-	    {
-		    _tokenStore = tokenStore;
-	    }
-
-		public void SetToken(BearerToken existingToken)
-        {
-	        _tokenStore.SetToken(existingToken);
-        }
+//		public void SetToken(BearerToken existingToken)
+//        {
+//	        _options.TokenStore.SetToken(existingToken);
+//        }
 
         public async Task<BearerToken> RefreshToken()
         {
-			if (TokenHeaders == null) TokenHeaders = new Dictionary<string, string>();
-
-			if (!TokenHeaders.ContainsKey("Host")) TokenHeaders.Add("Host", "fincloud.getbucks.com");
-	       // if (!_headers.ContainsKey("X-Forwarded-Proto")) _headers.Add("X-Forwarded-Proto", "https");
-	        if (_tokenStore.GetToken() != null)
+	        if (!_options.HasAuthentication)
 	        {
-		        return _tokenStore.GetToken();
+		        throw new Exception("Cannot refresh token. No authentication details specified.");
 	        }
-			var result = await _tokenBaseUrl
+
+	        var (credentials, tokenUrl) = _options.GetCredentials(); 
+	        
+			if (TokenHeaders == null) TokenHeaders = new Dictionary<string, string>();
+			
+			if (!TokenHeaders.ContainsKey("Host")) TokenHeaders.Add("Host", "fincloud.getbucks.com");
+	        if (_options.TokenStore.GetToken() != null)
+	        {
+		        return _options.TokenStore.GetToken();
+	        }
+			var result = await tokenUrl
                 .AppendPathSegment("tokens")
-                .AppendPathSegment(_tokenStore.GetToken().RefreshToken)
+                .AppendPathSegment(_options.TokenStore.GetToken().RefreshToken)
 				.WithHeaders(TokenHeaders)
-				.WithBasicAuth(_tokenAuthenticationCredentials.ClientId, _tokenAuthenticationCredentials.ClientSecret)
-                .PostJsonAsync(new {context = _context}).ReceiveJson<BearerToken>();
-            _tokenStore.SetToken(result);
+				.WithBasicAuth(credentials.ClientId, credentials.ClientSecret)
+                .PostJsonAsync(new {context = _options.Context}).ReceiveJson<BearerToken>();
+	        _options.TokenStore.SetToken(result);
             return result;
         }
 
         public async Task<BearerToken> GetAuthToken(string email, string password)
         {
-	       
+	        if (!_options.HasAuthentication)
+	        {
+		        throw new Exception("Cannot get token. No authentication details specified.");
+	        }
+
+	        email.Defend(nameof(email))
+		         .NotNullOrEmpty();
+
+	        password.Defend(nameof(password))
+		        .NotNullOrEmpty();
 	        
 			if (TokenHeaders == null) TokenHeaders = new Dictionary<string, string>();
-
-			if (!TokenHeaders.ContainsKey("Host")) TokenHeaders.Add("Host", "fincloud.getbucks.com");
-	       // if (!_headers.ContainsKey("X-Forwarded-Proto")) _headers.Add("X-Forwarded-Proto", "https");
-
 	        
-	        if (_tokenStore.GetToken() != null)
+	        if (_options.TokenStore.GetToken() != null)
 	        {
-		        return _tokenStore.GetToken();
+		        return _options.TokenStore.GetToken();
 	        }
-	        
+	        var (credentials, tokenUrl) = _options.GetCredentials(); 
 	        
 			var accountModel = new UserAuthenticationRequest
             {
-                Context = _context,
+                Context = _options.Context,
                 Email = email,
                 Password = password,
                 MobileNumber = ""
             };
-            var result = await _tokenBaseUrl
+            var result = await tokenUrl
                 .AppendPathSegment("tokens")
-				.WithHeaders(TokenHeaders)
-                .WithBasicAuth(_tokenAuthenticationCredentials.ClientId, _tokenAuthenticationCredentials.ClientSecret)
+                .WithBasicAuth(credentials.ClientId, credentials.ClientSecret)
                 .PostJsonAsync(accountModel)
                 .ReceiveJson<BearerToken>();
-	        _tokenStore.SetToken(result);
+	        _options.TokenStore.SetToken(result);
             return result;
         }
 
         public IFlurlRequest GetRequest()
         {
-	        if (!Headers.ContainsKey("Host") && AddHostHeaders) Headers.Add("Host", "fincloud.getbucks.com");
+	        if (string.IsNullOrWhiteSpace(_options.BaseUrl))
+	        {
+		        throw new ArgumentNullException(nameof(_options.BaseUrl));
+	        }
 	        
-            var token = _tokenStore.GetToken();
+            var token = _options.TokenStore.GetToken();
             if (token == null)
             {
-	            return _baseUrl.WithHeaders(Headers);
+	            return _options.BaseUrl.WithHeaders(_options.Headers);
             }
 
-            return _baseUrl.WithOAuthBearerToken(token.AccessToken).WithHeaders(Headers);
+            return _options.BaseUrl
+	            .WithOAuthBearerToken(token.AccessToken)
+	            .WithHeaders(_options.Headers);
         }
     }
 }

@@ -10,16 +10,17 @@ namespace Tests
         [Fact]
         public async Task Test1()
         {
-            
-            var client = new MyBucks.Core.ApiGateway.ApiClient.MyBucksApiClient();
-            client.SetTokenBaseUrl("https://testapi.getsure.info");
-            client.WithContext("mybucks.getsure.za");
-            client.WithAuthentication(new TokenAuthenticationCredentials
-            {
-                AppName = "getsure_admin",
-                ClientId = "getsure_admin",
-                ClientSecret = "NRt9DVNkTnA6"
-            });
+            var client = new MyBucks.Core.ApiGateway.ApiClient.MyBucksApiClient()
+                .Configure("https://testapi.getsure.info", "mybucks.getsure.za",
+                    options =>
+                    {
+                        options.EnableAuthentication("https://testapi.getsure.info", "getsure_admin", "NRt9DVNkTnA6",
+                            "getsure_admin");
+                    });
+
+
+            client.Configure("mybase", "mycunt");
+
 
             var token = await client.GetAuthToken("test@getsure.com", "password1");
             return;
