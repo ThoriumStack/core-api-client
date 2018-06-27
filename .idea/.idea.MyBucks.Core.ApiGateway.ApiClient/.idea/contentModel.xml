@@ -5,7 +5,6 @@
       <e p="MyBucks.Core.ApiGateway.ApiClient" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="DefaultTokenStore.cs" t="Include" />
-        <e p="DefensiveExtensions.cs" t="Include" />
         <e p="ITokenStore.cs" t="Include" />
         <e p="Models" t="Include">
           <e p="BearerToken.cs" t="Include" />
@@ -23,9 +22,6 @@
           </e>
         </e>
         <e p="ReallyNaughtyHttpClientFactory.cs" t="Include" />
-        <e p="TypeConverters" t="Include">
-          <e p="GrpcDateTimeConverter.cs" t="Include" />
-        </e>
       </e>
       <e p="MyBucks.Core.ApiGateway.ApiClient.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

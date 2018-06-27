@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using MyBucks.Core.ApiGateway.ApiClient;
 using MyBucks.Core.ApiGateway.ApiClient.Models;
 using Xunit;
 
@@ -16,11 +17,8 @@ namespace Tests
                     {
                         options.EnableAuthentication("https://testapi.getsure.info", "getsure_admin", "NRt9DVNkTnA6",
                             "getsure_admin");
+                        options.TokenStore = new DefaultTokenStore();
                     });
-
-
-            client.Configure("mybase", "mycunt");
-
 
             var token = await client.GetAuthToken("test@getsure.com", "password1");
             return;

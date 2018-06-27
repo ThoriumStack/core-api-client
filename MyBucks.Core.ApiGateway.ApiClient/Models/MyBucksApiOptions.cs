@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MyBucks.Core.Defensive;
 
 namespace MyBucks.Core.ApiGateway.ApiClient.Models
 {
@@ -9,14 +10,14 @@ namespace MyBucks.Core.ApiGateway.ApiClient.Models
         private string _tokenBaseUrl;
         public ITokenStore TokenStore { get; set; }
         internal Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
-        
+
         private TokenAuthenticationCredentials _tokenAuthenticationCredentials;
 
         public void AddHeader(string key, string value)
         {
             Headers.Add(key, value);
         }
-        
+
         internal void WithContext(string context)
         {
             Context = context;
@@ -30,30 +31,28 @@ namespace MyBucks.Core.ApiGateway.ApiClient.Models
         {
             _tokenBaseUrl = tokenBaseUrl;
 
-            CheckForBlank(tokenBaseUrl, "Token base Url");
-
-            if (Uri.TryCreate(tokenBaseUrl, UriKind.Absolute, out Uri _))
-            {
-                throw new Exception("Token base url invalid.");
-            }
-
+            // create global validator
+            
             tokenBaseUrl
                 .Defend(nameof(tokenBaseUrl))
                 .ValidUri()
-                .Custom(s => s.Length > 0, "{0} Length must be more than 0");
+                .Throw();
 
             clientId
                 .Defend(nameof(clientId))
-                .NotNullOrEmpty();
-            
+                .NotNullOrEmpty()
+                .Throw();
+
             clientSecret
                 .Defend(nameof(clientSecret))
-                .NotNullOrEmpty();
-            
+                .NotNullOrEmpty()
+                .Throw();
+
             appName
                 .Defend(nameof(appName))
-                .NotNullOrEmpty();
-            
+                .NotNullOrEmpty()
+                .Throw();
+
             _tokenAuthenticationCredentials = new TokenAuthenticationCredentials
             {
                 AppName = appName,

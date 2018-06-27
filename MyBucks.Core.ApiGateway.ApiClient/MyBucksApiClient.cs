@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Flurl;
 using Flurl.Http;
 using MyBucks.Core.ApiGateway.ApiClient.Models;
+using MyBucks.Core.Defensive;
 
 namespace MyBucks.Core.ApiGateway.ApiClient
 {
@@ -26,11 +27,6 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 		    setupAction?.Invoke(_options);
 		    return this;
 	    }
-
-//		public void SetToken(BearerToken existingToken)
-//        {
-//	        _options.TokenStore.SetToken(existingToken);
-//        }
 
         public async Task<BearerToken> RefreshToken()
         {
@@ -66,10 +62,12 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 	        }
 
 	        email.Defend(nameof(email))
-		         .NotNullOrEmpty();
+		         .NotNullOrEmpty()
+		        .Throw();
 
 	        password.Defend(nameof(password))
-		        .NotNullOrEmpty();
+		        .NotNullOrEmpty()
+		        .Throw();
 	        
 			if (TokenHeaders == null) TokenHeaders = new Dictionary<string, string>();
 	        
