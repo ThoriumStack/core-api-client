@@ -7,6 +7,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient.Models
     public class MyBucksApiOptions
     {
         internal string Context { get; set; }
+        internal string UserId { get; set; }
         private string _tokenBaseUrl;
         public ITokenStore TokenStore { get; set; }
         internal Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
@@ -24,6 +25,15 @@ namespace MyBucks.Core.ApiGateway.ApiClient.Models
             if (!Headers.ContainsKey("MyBucks-Context"))
             {
                 Headers.Add("MyBucks-Context", context);
+            }
+        }
+        
+        internal void WithUserId(string userId)
+        {
+            UserId = userId;
+            if (!Headers.ContainsKey("MyBucks-UserId"))
+            {
+                Headers.Add("MyBucks-UserId", userId);
             }
         }
 
