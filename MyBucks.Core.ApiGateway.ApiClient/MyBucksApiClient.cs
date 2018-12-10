@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using System.Threading.Tasks;
 using Flurl;
 using Flurl.Http;
@@ -89,6 +90,44 @@ namespace MyBucks.Core.ApiGateway.ApiClient
                 .AppendPathSegment("tokens")
                 .WithBasicAuth(credentials.ClientId, credentials.ClientSecret)
                 .PostJsonAsync(accountModel)
+                .ReceiveJson<BearerToken>();
+	        _options.TokenStore.SetToken(result);
+            return result;
+        } 
+	    
+	    public async Task<BearerToken> GetClientCredentialsAuthToken(string [] scopes)
+        {
+	        if (!_options.HasAuthentication)
+	        {
+		        throw new Exception("Cannot get token. No authentication details specified.");
+	        }
+
+	        if (scopes?.Any() ?? false)
+	        {
+		        throw new Exception("No scopes specified");
+	        }
+	    
+	        
+			if (TokenHeaders == null) TokenHeaders = new Dictionary<string, string>();
+	        
+	        if (_options.TokenStore.GetToken() != null)
+	        {
+		        return _options.TokenStore.GetToken();
+	        }
+	        var (credentials, tokenUrl) = _options.GetCredentials(); 
+	        
+			
+            var result = await tokenUrl
+
+                .WithBasicAuth(credentials.ClientId, credentials.ClientSecret)
+                .PostMultipartAsync(content =>
+	            {
+		            content.AddString("client_id", credentials.ClientId);
+		            content.AddString("client_secret", credentials.ClientSecret);
+		            content.AddString("grant_type", "client_credentials");
+		            content.AddString("requested_scopes", string.Join(" ", scopes));
+		            
+	            })
                 .ReceiveJson<BearerToken>();
 	        _options.TokenStore.SetToken(result);
             return result;

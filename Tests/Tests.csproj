@@ -12,4 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\MyBucks.Core.ApiGateway.ApiClient\MyBucks.Core.ApiGateway.ApiClient.csproj" />
   </ItemGroup>
+
+ 
 </Project>
