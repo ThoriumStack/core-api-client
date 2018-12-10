@@ -102,7 +102,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 		        throw new Exception("Cannot get token. No authentication details specified.");
 	        }
 
-	        if (scopes?.Any() ?? false)
+	        if (!scopes?.Any() ?? false)
 	        {
 		        throw new Exception("No scopes specified");
 	        }
