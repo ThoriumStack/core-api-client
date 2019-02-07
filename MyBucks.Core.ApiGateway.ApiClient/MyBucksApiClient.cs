@@ -21,10 +21,11 @@ namespace MyBucks.Core.ApiGateway.ApiClient
 		    _options = new MyBucksApiOptions {TokenStore = new DefaultTokenStore()};
 	    }
 
-	    public MyBucksApiClient Configure(string baseUrl, string context, string userId, Action<MyBucksApiOptions> setupAction=null)
+	    public MyBucksApiClient Configure(string baseUrl, string context, string userId, int timeZoneOffSetInMinutes=0, Action<MyBucksApiOptions> setupAction=null)
 	    {
 		    _options.WithContext(context);
 		    _options.WithUserId(userId);
+		    _options.WithTimeZoneOffset(timeZoneOffSetInMinutes);
 		    _options.BaseUrl = baseUrl;
 		    setupAction?.Invoke(_options);
 		    return this;

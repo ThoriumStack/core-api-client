@@ -27,7 +27,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient.Models
                 Headers.Add("MyBucks-Context", context);
             }
         }
-        
+
         internal void WithUserId(string userId)
         {
             UserId = userId;
@@ -42,7 +42,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient.Models
             _tokenBaseUrl = tokenBaseUrl;
 
             // create global validator
-            
+
             tokenBaseUrl
                 .Defend(nameof(tokenBaseUrl))
                 .ValidUri()
@@ -88,5 +88,13 @@ namespace MyBucks.Core.ApiGateway.ApiClient.Models
             !string.IsNullOrWhiteSpace(_tokenBaseUrl) && _tokenAuthenticationCredentials != null;
 
         public string BaseUrl { get; internal set; }
+
+        public void WithTimeZoneOffset(int timeZoneOffSetInMinutes)
+        {
+            if (!Headers.ContainsKey("MyBucks-TimeZone"))
+            {
+                Headers.Add("MyBucks-TimeZone", timeZoneOffSetInMinutes.ToString());
+            }
+        }
     }
 }
