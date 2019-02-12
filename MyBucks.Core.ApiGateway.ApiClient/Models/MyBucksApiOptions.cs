@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using MyBucks.Core.Defensive;
+using Thorium.FluentDefense;
 
 namespace MyBucks.Core.ApiGateway.ApiClient.Models
 {

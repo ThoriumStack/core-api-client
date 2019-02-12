@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using Flurl;
 using Flurl.Http;
 using MyBucks.Core.ApiGateway.ApiClient.Models;
-using MyBucks.Core.Defensive;
+using Thorium.FluentDefense;
 
 namespace MyBucks.Core.ApiGateway.ApiClient
 {

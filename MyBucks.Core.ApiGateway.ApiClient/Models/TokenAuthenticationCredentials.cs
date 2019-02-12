@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace MyBucks.Core.ApiGateway.ApiClient.Models
+﻿namespace MyBucks.Core.ApiGateway.ApiClient.Models
 {
     public class TokenAuthenticationCredentials
     {
