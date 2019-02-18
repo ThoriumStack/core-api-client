@@ -1,14 +1,16 @@
 namespace MyBucks.Core.ApiGateway.ApiClient
 {
-    // TODO: To get a client more easily
     public abstract class BaseApiClient
     {
-        protected MyBucksApiClient Client;
+        // likely exposing too much here, but accessing the client headers etc... might be important after config stage. Oh well?
+        public MyBucksApiClient Client;
 
         public void Initialize(MyBucksApiClient client)
         {
             Client = client;
         }
+        
+        
         
         public abstract string EndpointKey { get; } 
         
