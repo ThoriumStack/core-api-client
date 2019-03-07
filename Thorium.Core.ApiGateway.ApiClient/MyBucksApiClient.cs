@@ -4,23 +4,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Flurl;
 using Flurl.Http;
-using MyBucks.Core.ApiGateway.ApiClient.Models;
+using Thorium.Core.ApiGateway.ApiClient.Models;
 using Thorium.FluentDefense;
 
-namespace MyBucks.Core.ApiGateway.ApiClient
+namespace Thorium.Core.ApiGateway.ApiClient
 {
     public class MyBucksApiClient
     {
-	    private MyBucksApiOptions _options;
+	    private ApiOptions _options;
 	    
 	    private Dictionary<string, string> TokenHeaders { get; set; } = new Dictionary<string, string>();
 
 	    public MyBucksApiClient()
 	    {
-		    _options = new MyBucksApiOptions {TokenStore = new DefaultTokenStore()};
+		    _options = new ApiOptions {TokenStore = new DefaultTokenStore()};
 	    }
 
-	    public MyBucksApiClient Configure(string baseUrl, string context, string userId, int timeZoneOffSetInMinutes=0, Action<MyBucksApiOptions> setupAction=null)
+	    public MyBucksApiClient Configure(string baseUrl, string context, string userId, int timeZoneOffSetInMinutes=0, Action<ApiOptions> setupAction=null)
 	    {
 		    _options.WithContext(context);
 		    _options.WithUserId(userId);

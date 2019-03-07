@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using Flurl.Http.Configuration;
 
-namespace MyBucks.Core.ApiGateway.ApiClient
+namespace Thorium.Core.ApiGateway.ApiClient
 {
     
     public class ReallyNaughtyHttpClientFactory : DefaultHttpClientFactory

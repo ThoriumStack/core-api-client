@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBucks.Core.ApiGateway.ApiClient", "MyBucks.Core.ApiGateway.ApiClient\MyBucks.Core.ApiGateway.ApiClient.csproj", "{0B20EDD0-A529-4DB0-8B88-52C8C65FA3F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thorium.Core.ApiGateway.ApiClient", "Thorium.Core.ApiGateway.ApiClient\Thorium.Core.ApiGateway.ApiClient.csproj", "{0B20EDD0-A529-4DB0-8B88-52C8C65FA3F5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{8938D7C5-982C-4C9F-A94E-1A0D4CB45340}"
 EndProject

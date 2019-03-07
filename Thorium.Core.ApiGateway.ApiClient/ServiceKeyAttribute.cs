@@ -1,4 +1,4 @@
-namespace MyBucks.Core.ApiGateway.ApiClient
+namespace Thorium.Core.ApiGateway.ApiClient
 {
     public class ServiceKeyAttribute : System.Attribute
     {

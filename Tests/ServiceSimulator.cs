@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using MyBucks.Core.ApiGateway.ApiClient;
+using Thorium.Core.ApiGateway.ApiClient;
 
 namespace Tests
 {

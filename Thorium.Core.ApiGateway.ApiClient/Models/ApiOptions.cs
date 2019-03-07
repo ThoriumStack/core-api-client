@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Thorium.FluentDefense;
 
-namespace MyBucks.Core.ApiGateway.ApiClient.Models
+namespace Thorium.Core.ApiGateway.ApiClient.Models
 {
-    public class MyBucksApiOptions
+    public class ApiOptions
     {
         internal string Context { get; set; }
         internal string UserId { get; set; }
@@ -69,14 +69,6 @@ namespace MyBucks.Core.ApiGateway.ApiClient.Models
                 ClientId = clientId,
                 ClientSecret = clientSecret
             };
-        }
-
-        private void CheckForBlank(string input, string parameterName)
-        {
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                throw new Exception("{parameterName} cannot be null or blank.");
-            }
         }
 
         internal (TokenAuthenticationCredentials credentials, string tokenBaseUrl) GetCredentials()

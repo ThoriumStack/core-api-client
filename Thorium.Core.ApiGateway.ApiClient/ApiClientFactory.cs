@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MyBucks.Core.ApiGateway.ApiClient.Models;
+using Thorium.Core.ApiGateway.ApiClient.Models;
 
-namespace MyBucks.Core.ApiGateway.ApiClient
+namespace Thorium.Core.ApiGateway.ApiClient
 {
     public class ApiClientFactory
     {
@@ -14,7 +14,7 @@ namespace MyBucks.Core.ApiGateway.ApiClient
             _settings = settings;
         }
         
-        public TClientType GetClient<TClientType>(string context, string userId, int timezoneOffsetInMinutes, Action<MyBucksApiOptions> config = null) where TClientType : BaseApiClient, new()
+        public TClientType GetClient<TClientType>(string context, string userId, int timezoneOffsetInMinutes, Action<ApiOptions> config = null) where TClientType : BaseApiClient, new()
         {
             
             var inst =  new TClientType();

@@ -11,7 +11,7 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyBucks.Core.ApiGateway.ApiClient\MyBucks.Core.ApiGateway.ApiClient.csproj" />
+    <ProjectReference Include="..\Thorium.Core.ApiGateway.ApiClient\Thorium.Core.ApiGateway.ApiClient.csproj" />
   </ItemGroup>
 
  

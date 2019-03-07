@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Flurl.Http;
-using MyBucks.Core.ApiGateway.ApiClient;
+using Thorium.Core.ApiGateway.ApiClient;
 
 namespace Tests
 {

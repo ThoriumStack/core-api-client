@@ -1,6 +1,6 @@
-﻿using MyBucks.Core.ApiGateway.ApiClient.Models;
+﻿using Thorium.Core.ApiGateway.ApiClient.Models;
 
-namespace MyBucks.Core.ApiGateway.ApiClient
+namespace Thorium.Core.ApiGateway.ApiClient
 {
     public class DefaultTokenStore : ITokenStore
     {

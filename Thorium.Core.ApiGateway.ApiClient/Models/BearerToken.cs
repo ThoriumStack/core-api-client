@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace MyBucks.Core.ApiGateway.ApiClient.Models
+namespace Thorium.Core.ApiGateway.ApiClient.Models
 {
     public class BearerToken
     {
