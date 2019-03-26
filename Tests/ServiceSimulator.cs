@@ -14,7 +14,7 @@ namespace Tests
 
         public async Task<object> GetCustomer()
         {
-            var client = _factory.GetClient<TestApiClient>("mybucks.getsure.za", "1", 0);
+            var client = _factory.GetClient<TestApiClient>("test", "1", 0);
             var customer = await client.GetCustomer(1);
             return customer;
 

@@ -3,9 +3,9 @@ namespace Thorium.Core.ApiGateway.ApiClient
     public abstract class BaseApiClient
     {
         // likely exposing too much here, but accessing the client headers etc... might be important after config stage. Oh well?
-        public MyBucksApiClient Client;
+        public ApiClient Client;
 
-        public void Initialize(MyBucksApiClient client)
+        public void Initialize(ApiClient client)
         {
             Client = client;
         }

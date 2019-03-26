@@ -9,18 +9,18 @@ using Thorium.FluentDefense;
 
 namespace Thorium.Core.ApiGateway.ApiClient
 {
-    public class MyBucksApiClient
+    public class ApiClient
     {
 	    private ApiOptions _options;
 	    
 	    private Dictionary<string, string> TokenHeaders { get; set; } = new Dictionary<string, string>();
 
-	    public MyBucksApiClient()
+	    public ApiClient()
 	    {
 		    _options = new ApiOptions {TokenStore = new DefaultTokenStore()};
 	    }
 
-	    public MyBucksApiClient Configure(string baseUrl, string context, string userId, int timeZoneOffSetInMinutes=0, Action<ApiOptions> setupAction=null)
+	    public ApiClient Configure(string baseUrl, string context, string userId, int timeZoneOffSetInMinutes=0, Action<ApiOptions> setupAction=null)
 	    {
 		    _options.WithContext(context);
 		    _options.WithUserId(userId);

@@ -23,7 +23,7 @@ namespace Thorium.Core.ApiGateway.ApiClient
             {
                 throw new Exception($"Unable to find endpoint key : {inst.EndpointKey}");
             }
-            var mbApi = new MyBucksApiClient()
+            var mbApi = new ApiClient()
                 .Configure(key.Url, context, userId,timezoneOffsetInMinutes,  config);
             inst.Initialize(mbApi);
 
