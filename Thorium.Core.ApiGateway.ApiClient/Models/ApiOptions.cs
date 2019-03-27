@@ -22,18 +22,26 @@ namespace Thorium.Core.ApiGateway.ApiClient.Models
         internal void WithContext(string context)
         {
             Context = context;
-            if (!Headers.ContainsKey("MyBucks-Context"))
+            if (!Headers.ContainsKey("Thorium-Context"))
             {
-                Headers.Add("MyBucks-Context", context);
+                Headers.Add("Thorium-Context", context);
             }
         }
 
         internal void WithUserId(string userId)
         {
             UserId = userId;
-            if (!Headers.ContainsKey("MyBucks-UserId"))
+            if (!Headers.ContainsKey("Thorium-UserId"))
             {
-                Headers.Add("MyBucks-UserId", userId);
+                Headers.Add("Thorium-UserId", userId);
+            }
+        }
+        
+        public void WithTimeZoneOffset(int timeZoneOffSetInMinutes)
+        {
+            if (!Headers.ContainsKey("Thorium-TimeZone"))
+            {
+                Headers.Add("Thorium-TimeZone", timeZoneOffSetInMinutes.ToString());
             }
         }
 
@@ -81,12 +89,6 @@ namespace Thorium.Core.ApiGateway.ApiClient.Models
 
         public string BaseUrl { get; internal set; }
 
-        public void WithTimeZoneOffset(int timeZoneOffSetInMinutes)
-        {
-            if (!Headers.ContainsKey("MyBucks-TimeZone"))
-            {
-                Headers.Add("MyBucks-TimeZone", timeZoneOffSetInMinutes.ToString());
-            }
-        }
+      
     }
 }
